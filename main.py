@@ -3,11 +3,10 @@ from discord.ext import commands
 import requests
 from deep_translator import GoogleTranslator
 import os
-from keep_alive import keep_alive
 
 # إعداد النوايا (intents)
 intents = discord.Intents.default()
-intents.messages = True  # تمكين الوصول إلى الرسائل
+intents.message_content = True  # تمكين الوصول إلى محتوى الرسائل
 
 # إعداد البوت
 bot = commands.Bot(command_prefix='!', intents=intents)
@@ -137,7 +136,7 @@ async def chk(ctx):
         if attachment.filename.endswith('.txt'):
             file_path = attachment.filename
             await attachment.save(file_path)
-            await ctx.send('تم استلام الملف بنجاح جاري فخص الروابط الرجاء الانتظار (قد يستغرق الأمر وقتا يرجى التحلي بالصبر)')
+            await ctx.send('تم استلام الملف بنجاح جاري فخص الروابط الرجاء الانتظار (قد يستغرق الأمر وقتا)')
 
             def check_url(url):
                 try:
