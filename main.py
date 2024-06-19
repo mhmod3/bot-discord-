@@ -3,6 +3,7 @@ from discord.ext import commands
 import requests
 from deep_translator import GoogleTranslator
 import os
+from keep_alive import keep_alive
 
 # إعداد النوايا (intents)
 intents = discord.Intents.default()
@@ -178,6 +179,7 @@ async def chk(ctx):
 
 
 # تشغيل البوت
+
 if __name__ == "__main__":
     keep_alive()
     bot.run(os.environ['token'])
