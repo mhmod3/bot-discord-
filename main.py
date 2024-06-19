@@ -7,7 +7,7 @@ from keep_alive import keep_alive
 
 # إعداد النوايا (intents)
 intents = discord.Intents.default()
-intents.message_content = True  # تمكين الوصول إلى محتوى الرسائل
+intents.messages = True  # تمكين الوصول إلى الرسائل
 
 # إعداد البوت
 bot = commands.Bot(command_prefix='!', intents=intents)
@@ -179,5 +179,6 @@ async def chk(ctx):
 
 
 # تشغيل البوت
-keep_alive()
-bot.run(os.environ['token'])
+if __name__ == "__main__":
+    keep_alive()
+    bot.run(os.environ['token'])
